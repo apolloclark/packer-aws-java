@@ -181,20 +181,10 @@ Packages = {
   }
 }
 
-# Define Installed services
-InstalledServices = [
-  'filebeat',
-  'metricbeat',
-  'heartbeat',
-  'packetbeat',
-  'osqueryd'
+# Define Enabled services
+EnabledServices = [
 ]
 
-# Define Active services
-ActiveServices = [
-  'filebeat',
-  'metricbeat',
-  'heartbeat',
-  'packetbeat',
-  'osqueryd'
+# Define Running services
+RunningServices = [
 ]
