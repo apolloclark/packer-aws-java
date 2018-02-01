@@ -1,6 +1,5 @@
 {
   "variables": {
-    "ansible_roles_path": "./ansible/roles",
     "atlas_token": "{{ env `ATLAS_TOKEN` }}",
     "cpus": "1",
     "headless": "",
