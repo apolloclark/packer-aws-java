@@ -2,7 +2,7 @@
 start=`date +%s`
 
 # remove old OVF file
-rm -rf ./output-*-virtualbox-ovf
+rm -rf ./output/vbox
 
 packer validate packer_virtualbox.json
 
