@@ -1,7 +1,7 @@
 # packer-aws-java
 
 Packer based project for provisioning a "java" image using Ansible remote, 
-and Serverspc, for AWS, or Virtualbox, with Elastic monitoring.
+and Serverspc, for AWS, or Virtualbox, with Elastic monitoring and Java.
 
 ## Requirements
 
