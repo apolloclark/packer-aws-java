@@ -1,7 +1,7 @@
 {
   "variables": {
     "ansible_user": "vagrant",
-  	"atlas_box_tag": "apolloclark/ubuntu16.04-json",
+  	"atlas_box_tag": "apolloclark/ubuntu16.04-java",
     "atlas_token": "{{ env `ATLAS_TOKEN` }}",
     "cpus": "1",
     "headless": "true",
