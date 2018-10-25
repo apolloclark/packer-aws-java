@@ -45,10 +45,7 @@
       "type": "ansible-local",
       "playbook_dir": "./ansible",
       "galaxy_file": "./ansible/requirements.yml",
-      "playbook_file": "./ansible/playbook.yml",
-      "role_paths": [
-      	"./ansible/roles"
-      ]
+      "playbook_file": "./ansible/playbook.yml"
     },
     {
       "type": "shell",
