@@ -9,6 +9,6 @@ manifest.json.lock
 
 **/ansible/roles/*
 **/playbook.retry
-box/*
-output*/*
-packer_cache/*
+base/box/*
+base/output*/*
+base/packer_cache/*
