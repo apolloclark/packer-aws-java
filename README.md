@@ -19,15 +19,22 @@ To use this project, you must have installed:
 ## Deploy to AWS, with Packer
 ```shell
 git clone https://github.com/apolloclark/packer-aws-java
-cd packer-aws-java
+cd ./packer-aws-java/base
 # create a keypair named "packer" or change lines 26, 27 in build_packer_aws.sh
-./build_packer.sh
+./build_packer_aws.sh
 ```
 
-## Deploy Locally, with Vagrant
+## Deploy to Virtualbox, with Packer
 ```shell
 git clone https://github.com/apolloclark/packer-aws-java
-cd packer-aws-java
+cd ./packer-aws-java/base
+./build_packer_virtualbox.sh
+```
+
+## Deploy to Virtualbox, with Vagrant
+```shell
+git clone https://github.com/apolloclark/packer-aws-java
+cd ./packer-aws-java/base
 vagrant up
 vagrant ssh
 ```

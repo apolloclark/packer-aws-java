@@ -5,10 +5,10 @@
     "atlas_token": "{{ env `ATLAS_TOKEN` }}",
     "cpus": "1",
     "headless": "true",
-    "memory": "1024",
     "hostname": "vagrant",
+    "memory": "1024",
     "project_name": "packer-aws-java",
-    "source_path": "../packer-aws-beats/output/vmware/ubuntu1604-beats.vmx",
+    "source_path": "../../packer-aws-beats/base/output/vbox/ubuntu1604-beats.ovf",
     "ssh_password": "vagrant",
     "ssh_username": "vagrant",
     "vagrantfile_template": "",
@@ -17,26 +17,27 @@
   },
   "builders": [
     {
-      "type": "vmware-vmx",
+      "type": "virtualbox-ovf",
       "source_path": "{{ user `source_path` }}",
-      "output_directory": "output/vmware",
       "headless": "{{ user `headless` }}",
-      "output_directory": "output/vmware",
+      "output_directory": "output/vbox",
+      "post_shutdown_delay": "1m",
       "shutdown_command": "echo '{{ user `ssh_password` }}'|sudo -S shutdown -P now",
       "ssh_password": "{{ user `ssh_password` }}",
       "ssh_username": "{{ user `ssh_username` }}",
       "ssh_wait_timeout": "600s",
-      "tools_upload_flavor": "linux",
-      "vm_name": "{{ user `vm_name` }}",
-      "vmx_data": {
-        "memsize": "{{ user `memory` }}",
-        "numvcpus": "{{ user `cpus` }}",
-        "ethernet0.present": true,
-        "ethernet0.startConnected": true,
-        "ethernet0.connectionType": "custom",
-        "ethernet0.vnet": "vmnet8"
-      },
-      "vmx_remove_ethernet_interfaces": true,
+      "vboxmanage": [
+        [
+          "modifyvm", "{{.Name}}", "--nictype1", "virtio"
+        ],
+        [
+          "modifyvm", "{{.Name}}", "--memory", "{{ user `memory` }}"
+        ],
+        [
+          "modifyvm", "{{.Name}}", "--cpus", "{{ user `cpus` }}"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
       "vm_name": "{{user `vm_name`}}"
     }
   ],
@@ -48,21 +49,14 @@
       "playbook_file": "./ansible/playbook.yml"
     },
     {
-      "type": "shell",
-      "inline": [
-        "mkdir -p /home/vagrant/{{ user `project_name` }}/serverspec"
-      ]
-    },
-    {
       "type": "file",
       "source": "./serverspec",
-      "destination": "/home/vagrant/{{ user `project_name` }}"
+      "destination": "/tmp/"
     },
     {
       "type": "shell",
       "inline": [
-        "cd /home/vagrant/{{ user `project_name` }}/serverspec",
-        "rake spec"
+        "cd /tmp/serverspec; rake spec"
       ]
     }
   ],
