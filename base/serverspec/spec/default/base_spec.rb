@@ -1,7 +1,20 @@
 require 'spec_helper'
 
-# https://www.singlestoneconsulting.com/articles/writing-efficient-infrastructure-tests-with-serverspec
+# Define installed packages
+Packages = {
+}
 
+# Define Enabled services
+EnabledServices = [
+]
+
+# Define Running services
+RunningServices = [
+]
+
+
+
+# https://www.singlestoneconsulting.com/articles/writing-efficient-infrastructure-tests-with-serverspec
 # Verify packages
 Packages.each do |name, details|
   describe package(name) do
