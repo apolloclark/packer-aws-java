@@ -47,7 +47,7 @@
       "execute_command": "echo '{{ user `ssh_password` }}' | sudo -E -S bash '{{.Path}}'",
       "inline": [
         "export DEBIAN_FRONTEND=noninteractive",
-        "apt-get update"
+        "apt-get update",
         "apt-get upgrade -yq"
       ]
     },
