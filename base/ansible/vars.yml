@@ -2,6 +2,12 @@
 ---
 hostname: all
 
-# geerlingguy/java
-java_packages:
-  - openjdk-8-jre
+
+# idealista.java-role
+# https://launchpad.net/~openjdk-r/+archive/ubuntu/ppa?field.series_filter=xenial
+java_implementation: openjdk
+java_open_jdk_version: "11.x"
+# java_open_jdk_package: openjdk-11-jdk-headless
+    # java-11-openjdk-headless - 11.0.3.7
+    # openjdk-11-jdk-headless = 11.0.4+11-1~16.04.1
+    # openjdk-11-jdk-headless = 11.0.3+7-1ubuntu2~18.04.1
