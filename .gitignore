@@ -9,7 +9,7 @@ manifest.json.lock
 
 **/ansible/roles/*
 **/playbook.retry
-**/.gradle/*
+.gradle
 base/box/*
 base/output*/*
 base/packer_cache/*
