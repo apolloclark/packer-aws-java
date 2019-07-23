@@ -1,6 +1,7 @@
 .project
 .vagrant
 .rspec
+.gradle
 manifest.json
 vagrant.json
 Gemfile.lock
@@ -9,7 +10,6 @@ manifest.json.lock
 
 **/ansible/roles/*
 **/playbook.retry
-base/.gradle
 base/box/*
 base/output*/*
 base/packer_cache/*
