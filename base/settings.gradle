@@ -8,4 +8,8 @@
  */
 
 rootProject.name = 'packer-openjdk'
-include ':gradle-build:centos7.6', ':gradle-build:ubuntu18.04', ':gradle-build:ubuntu16.04'
+include ':gradle-build:rhel8.0',
+    ':gradle-build:rhel7.6',
+    ':gradle-build:centos7.6',
+    ':gradle-build:ubuntu18.04',
+    ':gradle-build:ubuntu16.04'
