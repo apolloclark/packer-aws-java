@@ -1,4 +1,4 @@
-# packer-aws-java
+# packer-openjdk
 
 Packer based project for provisioning a "java" image using Ansible remote, 
 and Serverspc, for AWS, or Virtualbox, with Elastic monitoring and Java.
@@ -18,8 +18,8 @@ To use this project, you must have installed:
 
 ## Install
 ```shell
-git clone --recurse-submodules https://github.com/apolloclark/packer-ruby
-cd ./packer-ruby
+git clone --recurse-submodules https://github.com/apolloclark/packer-openjdk
+cd ./packer-openjdk
 
 # update submodules
 git submodule update --recursive --remote
@@ -45,7 +45,9 @@ gradle test --rerun-tasks --parallel --project-dir gradle-build
 # Gradle, build only specific OS images
 gradle ubuntu18.04:test --project-dir gradle-build --rerun-tasks
 gradle ubuntu16.04:test --project-dir gradle-build --rerun-tasks
-gradle centos7:test     --project-dir gradle-build --rerun-tasks
+gradle centos7.6:test   --project-dir gradle-build --rerun-tasks
+gradle rhel7.6:test     --project-dir gradle-build --rerun-tasks
+gradle rhel8.0:test     --project-dir gradle-build --rerun-tasks
 
 # Gradle, publish images
 gradle push --parallel --project-dir gradle-build
@@ -65,23 +67,23 @@ rm -rf ~/.gradle
 
 ## Deploy to AWS, with Packer
 ```shell
-git clone https://github.com/apolloclark/packer-aws-java
-cd ./packer-aws-java/base
+git clone https://github.com/apolloclark/packer-openjdk
+cd ./packer-openjdk/base
 # create a keypair named "packer" or change lines 26, 27 in build_packer_aws.sh
 ./build_packer_aws.sh
 ```
 
 ## Deploy to Virtualbox, with Packer
 ```shell
-git clone https://github.com/apolloclark/packer-aws-java
-cd ./packer-aws-java/base
+git clone https://github.com/apolloclark/packer-openjdk
+cd ./packer-openjdk/base
 ./build_packer_virtualbox.sh
 ```
 
 ## Deploy to Virtualbox, with Vagrant
 ```shell
-git clone https://github.com/apolloclark/packer-aws-java
-cd ./packer-aws-java/base
+git clone https://github.com/apolloclark/packer-openjdk
+cd ./packer-openjdk/base
 vagrant up
 vagrant ssh
 ```
@@ -89,4 +91,4 @@ vagrant ssh
 ## Ansible
 
 Ansible Roles:
-- [geerlingguy.java](https://github.com/geerlingguy/ansible-role-java)
+- [idealista.java](https://github.com/idealista/java_role)
