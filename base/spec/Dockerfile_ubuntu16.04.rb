@@ -32,7 +32,7 @@ describe "Dockerfile" do
   end
 
   def os_version
-    command("uname -a").stdout
+    command("cat /etc/os-release").stdout
   end
 
   def sys_user
@@ -43,6 +43,7 @@ describe "Dockerfile" do
 
   it "installs the right version of Ubuntu" do
     expect(os_version).to include("Ubuntu")
+    expect(os_version).to include("16.04")
   end
 
   it "runs as root" do

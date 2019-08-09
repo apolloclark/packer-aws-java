@@ -42,8 +42,7 @@ describe "Dockerfile" do
 
 
   it "installs the right version of Ubuntu" do
-    expect(os_version).to include("Ubuntu")
-    expect(os_version).to include("18.04")
+    expect(os_version).to include("Debian GNU/Linux 10")
   end
 
   it "runs as root" do

@@ -5,11 +5,14 @@ start=`date +%s`
 export DOCKER_USERNAME=${DOCKER_USERNAME:=$(whoami)}
 export PACKAGE_NAME=${PACKAGE_NAME:=openjdk}
 
-
 # remove previously built local images
-docker system prune -f
+docker container prune -f
 
-docker images -a | grep -F "$PACKAGE_NAME" | grep -F "$DOCKER_USERNAME" | awk '{print $3}' | xargs docker rmi -f
+docker kill $(docker ps -q) || true
+
+docker system prune -f || true
+
+docker images -a | grep -F "$PACKAGE_NAME" | grep -F "$DOCKER_USERNAME" | awk '{print $3}' | xargs docker rmi -f || true
 
 end=`date +%s`
 secs=$((end-start))

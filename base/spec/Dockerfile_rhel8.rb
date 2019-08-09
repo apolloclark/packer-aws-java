@@ -41,9 +41,9 @@ describe "Dockerfile" do
 
 
 
-  it "installs the right version of Centos" do
+  it "installs the right version of RHEL" do
     expect(os_version).to include("Red Hat")
-    expect(os_version).to include("7.6")
+    expect(os_version).to include("release 8")
   end
 
   it "runs as root" do
