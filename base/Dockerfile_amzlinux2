@@ -1,6 +1,7 @@
 FROM amazoncorretto:11
 
-RUN ln -s /usr/lib/jvm/java-11-amazon-corretto /usr/local/openjdk-11
+RUN ln -s /usr/lib/jvm/java-11-amazon-corretto /usr/local/openjdk-11 && \
+    yum install -y shadow-utils
 
 ENV LANG C.UTF-8
 ENV JAVA_HOME /usr/local/openjdk-11
