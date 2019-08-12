@@ -14,7 +14,6 @@ describe "Dockerfile" do
 
     # check for package version major usage
     if package_version.match(/(\d+).x/)
-        puts "[INFO] regex match found"
         package_version = package_version.match(/(\d+).x/)[1]
     end
 
@@ -56,18 +55,38 @@ describe "Dockerfile" do
     it { should be_installed }
   end
 
-  describe command("java --version 2>&1") do
+  describe command("java --version") do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/11(.*)/) }
   end
 
-  describe command("javac --version 2>&1") do
+  describe command("javac --version") do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/11(.*)/) }
   end
 
-  describe command("jshell --version 2>&1") do
+  describe command("jshell --version") do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/11(.*)/) }
+  end
+
+  describe command('bash -l -c "echo $JAVA_HOME"') do
+    its(:exit_status) { should eq 0 }
+    its(:stdout) { should match("/usr/local/openjdk-11") }
+  end
+
+  describe command('bash -c "ls -lah $JAVA_HOME"') do
+    its(:exit_status) { should eq 0 }
+    its(:stdout) { should match("/usr/local/openjdk-11 ->") }
+  end
+
+  describe command('bash -c "ls $JAVA_HOME"') do
+    its(:exit_status) { should eq 0 }
+    its(:stdout) { should match("bin") }
+    its(:stdout) { should match("conf") }
+    its(:stdout) { should match("include") }
+    its(:stdout) { should match("legal") }
+    its(:stdout) { should match("lib") }
+    its(:stdout) { should match("release") }
   end
 end
