@@ -26,3 +26,9 @@ if [ -x "$(command -v yum)" ]; then
     /usr/bin/python --version
     exit 0;
 fi
+
+# https://github.com/docker-library/openjdk/blob/master/11/jdk/slim/Dockerfile
+# create symlinks, to retain compatibility with the OpenJDK Docker images
+mkdir -p /usr/local/openjdk-11 
+mkdir -p /usr/lib/jvm/java-11-openjdk-amd64
+ln -s /usr/lib/jvm/java-11-openjdk-amd64/ /usr/local/openjdk-11 

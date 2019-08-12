@@ -1,19 +1,19 @@
-#!/bin/bash
+#!/bin/bash -l
 
 set -euo pipefail
 
 # Check if the the user has invoked the image with flags.
-# eg. "java -classpath /usr/bin"
+# eg. "-classpath /usr/bin" will call "jshell -classpath /usr/bin"
 if [[ -z $1 ]] || [[ ${1:0:1} == '-' ]] ; then
-  exec java "$@"
+  exec jshell "$@"
 else
-  # They may be looking for a subcommand, like "java -p".
-  subcommands=$(java -help 2>&1 | grep '    -' | awk '{$1=$1};1' | awk '{print $1}')
+  # They may be looking for a subcommand, like "jshell --help".
+  subcommands=$(jshell --help 2>&1 | grep '    -' | awk '{$1=$1};1' | awk '{print $1}')
 
-  # If we _did_ get a subcommand, pass it to java.
+  # If we _did_ get a subcommand, pass it to jshell
   for subcommand in $subcommands; do
       if [[ $1 == $subcommand ]]; then
-        exec java "$@"
+        exec jshell "$@"
       fi
   done
 fi

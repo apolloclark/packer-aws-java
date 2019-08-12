@@ -25,11 +25,15 @@
         "/bin/bash"
       ],
       "changes": [
-        "ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64",
-        "ENTRYPOINT [\"/usr/local/bin/docker-entrypoint\"]",
-        "WORKDIR /usr/bin",
-        "USER root",
-        "CMD [\"bash\"]"
+        "USER \"\"",
+        "WORKDIR \"\"",
+        "ENTRYPOINT [\"/usr/local/bin/docker-entrypoint.sh\"]",
+        "CMD [\"jshell\"]",
+        "ENV PATH /usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "ENV LANG C.UTF-8",
+        "ENV JAVA_HOME /usr/local/openjdk-11",
+        "ENV JAVA_VERSION 11.0.4",
+        "ENV JAVA_URL_VERSION 11.0.4_11"
       ]
     }
   ],
@@ -55,8 +59,8 @@
     },
     {
       "type": "file",
-      "source": "./files/docker-entrypoint",
-      "destination": "/usr/local/bin/docker-entrypoint"
+      "source": "./files/docker-entrypoint.sh",
+      "destination": "/usr/local/bin/docker-entrypoint.sh"
     },
     {
       "type": "shell",
