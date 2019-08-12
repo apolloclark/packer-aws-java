@@ -70,5 +70,4 @@ describe "Dockerfile" do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/11(.*)/) }
   end
-
 end
