@@ -1,0 +1,9 @@
+FROM amazoncorretto:11
+
+RUN ln -s /usr/lib/jvm/java-11-amazon-corretto /usr/local/openjdk-11
+
+ENV LANG C.UTF-8
+ENV JAVA_HOME /usr/local/openjdk-11
+ENV PATH $JAVA_HOME/bin:$PATH
+ENV JAVA_VERSION 11.0.4
+ENV JAVA_URL_VERSION 11.0.4_11
