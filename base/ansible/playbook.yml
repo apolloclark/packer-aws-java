@@ -8,5 +8,11 @@
   become_user: "root"
   vars_files:
     - "vars.yml"
+  pre_tasks:
+    - name: Java | Set OpenJDK package name, RHEL / CentOS
+      set_fact:
+        java_open_jdk_package: "java-11-openjdk-devel"
+      when:
+        - ansible_os_family == 'RedHat'
   roles:
     - java_role

@@ -32,7 +32,7 @@ describe "Dockerfile" do
   end
 
   def os_version
-    command("cat /etc/system-release").stdout
+    command("cat /etc/*-release").stdout
   end
 
   def sys_user
@@ -57,6 +57,16 @@ describe "Dockerfile" do
   end
 
   describe command("java --version 2>&1") do
+    its(:exit_status) { should eq 0 }
+    its(:stdout) { should match(/11(.*)/) }
+  end
+
+  describe command("javac --version 2>&1") do
+    its(:exit_status) { should eq 0 }
+    its(:stdout) { should match(/11(.*)/) }
+  end
+
+  describe command("jshell --version 2>&1") do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match(/11(.*)/) }
   end

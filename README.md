@@ -51,6 +51,7 @@ gradle debian9:test     --project-dir gradle-build --rerun-tasks
 gradle rhel8:test     --project-dir gradle-build --rerun-tasks
 gradle rhel7:test     --project-dir gradle-build --rerun-tasks
 gradle centos7:test   --project-dir gradle-build --rerun-tasks
+
 gradle amzlinux2:test   --project-dir gradle-build --rerun-tasks
 
 # Gradle, publish images
