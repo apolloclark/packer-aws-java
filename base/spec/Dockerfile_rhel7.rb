@@ -46,7 +46,7 @@ describe "Dockerfile" do
   end
 
   it "runs as root" do
-    expect(sys_user).to include("root")
+    expect(sys_user).to eql("root")
   end
 
 
