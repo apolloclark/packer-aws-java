@@ -40,7 +40,7 @@ describe "Dockerfile" do
 
 
 
-  it "installs the right version of CentOS" do
+  it "runs the right version of Amazon Linux" do
     expect(os_version).to include("Amazon Linux")
     expect(os_version).to include("Linux 2")
   end

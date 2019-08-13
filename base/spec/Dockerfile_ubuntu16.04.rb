@@ -40,7 +40,7 @@ describe "Dockerfile" do
 
 
 
-  it "installs the right version of Ubuntu" do
+  it "runs the right version of Ubuntu" do
     expect(os_version).to include("Ubuntu")
     expect(os_version).to include("16.04")
   end

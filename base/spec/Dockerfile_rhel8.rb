@@ -40,7 +40,7 @@ describe "Dockerfile" do
 
 
 
-  it "installs the right version of RHEL" do
+  it "runs the right version of RHEL" do
     expect(os_version).to include("Red Hat")
     expect(os_version).to include("release 8")
   end

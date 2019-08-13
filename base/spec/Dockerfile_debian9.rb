@@ -40,7 +40,7 @@ describe "Dockerfile" do
 
 
 
-  it "installs the right version of Debian" do
+  it "runs the right version of Debian" do
     expect(os_version).to include("Debian")
     expect(os_version).to include("GNU/Linux 9")
   end
