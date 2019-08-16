@@ -27,7 +27,8 @@ elif [ -x "$(command -v dnf)" ]; then
 elif [ -x "$(command -v yum)" ]; then
     yum makecache fast
     yum update -y
-    yum install -y which nano curl wget git gnupg2 initscripts hostname
+    yum install -y which nano curl wget git gnupg2 initscripts hostname gzip \
+        tar
     yum clean all
     python --version
 
